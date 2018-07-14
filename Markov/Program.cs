@@ -36,18 +36,7 @@ namespace Markov
                 Console.Write(word + " - ");
             }
             Console.WriteLine("\n");
-            // PrintMatrix(wordMatrix);
-            //Coordinate c = new Coordinate { X = 0, Y = 0 };
-
-            //var coordinates = new List<Coordinate>();
-            //foreach (var word in wordsToCheck)
-            //{
-            //    var coordinatesPerWord = Puzzle.CheckAdjacentsC(word, c.X, c.Y, wordMatrix);
-            //    //We need to check whether or not the query returned values.
-            //    if (coordinatesPerWord.Count > 0)
-            //        coordinates.AddRange(coordinatesPerWord);
-            //}
-            //PrintSolvedMatrix(wordMatrix, coordinates);
+            
             List<PuzzleResponse> puzzleResponseList = new List<PuzzleResponse>();
             List<Coordinate> coordinatesToPaint = new List<Coordinate>();
             StringBuilder sBuilderFoundWords = new StringBuilder();
