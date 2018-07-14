@@ -1,0 +1,15 @@
+c:\users\yacasti\documents\visual studio 2015\Projects\Markov\Markov\bin\Debug\Markov.exe.config
+c:\users\yacasti\documents\visual studio 2015\Projects\Markov\Markov\bin\Debug\Markov.exe
+c:\users\yacasti\documents\visual studio 2015\Projects\Markov\Markov\bin\Debug\Markov.pdb
+c:\users\yacasti\documents\visual studio 2015\Projects\Markov\Markov\bin\Debug\Newtonsoft.Json.dll
+c:\users\yacasti\documents\visual studio 2015\Projects\Markov\Markov\bin\Debug\Newtonsoft.Json.xml
+c:\users\yacasti\documents\visual studio 2015\Projects\Markov\Markov\obj\Debug\Markov.exe
+c:\users\yacasti\documents\visual studio 2015\Projects\Markov\Markov\obj\Debug\Markov.pdb
+C:\Users\yacasti\Desktop\Markov\Markov\bin\Debug\Markov.exe.config
+C:\Users\yacasti\Desktop\Markov\Markov\obj\Debug\Markov.exe
+C:\Users\yacasti\Desktop\Markov\Markov\obj\Debug\Markov.pdb
+C:\Users\yacasti\Desktop\Markov\Markov\bin\Debug\Markov.exe
+C:\Users\yacasti\Desktop\Markov\Markov\bin\Debug\Markov.pdb
+C:\Users\yacasti\Desktop\Markov\Markov\bin\Debug\Newtonsoft.Json.dll
+C:\Users\yacasti\Desktop\Markov\Markov\bin\Debug\Newtonsoft.Json.xml
+C:\Users\yacasti\Desktop\Markov\Markov\bin\Debug\Markov.XML

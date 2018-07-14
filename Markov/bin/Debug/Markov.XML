@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Markov</name>
+    </assembly>
+    <members>
+        <member name="F:Markov.Helper.MarkovDecoder._WordsFileName">
+             <summary>
+             This section could be reading from configuration values, in case it is required.
+             </summary>
+            
+        </member>
+        <member name="M:Markov.Helper.MarkovDecoder.Decypher(System.Collections.Generic.List{Markov.Models.Markov.Rule},System.Collections.Generic.List{Markov.Models.Markov.NodeValue})">
+            <summary>
+            Uses the Markov's Algorithm for string replacement to decode a list of characters in order to generate a 2D char array
+            Check details here: https://en.wikipedia.org/wiki/Markov_algorithm
+            </summary>
+            <param name="rules">List of rules used for decode the values.</param>
+            <param name="nodes">List of Values to compare with the rules and the cypher to decode and perform the replacements.</param>
+            <returns>2D Array of characters containing the puzzle without solution.</returns>
+        </member>
+        <member name="M:Markov.Helper.MarkovDecoder.ReadWords">
+            <summary>
+            Read the words from the JSON file specified.
+            </summary>
+            <returns>List of string containing the words obtained from the file.</returns>
+        </member>
+        <member name="M:Markov.Helper.MarkovDecoder.ReadValues">
+            <summary>
+            Read Node values from a file.
+            </summary>
+            <param name="fileName">The name of the file containing the node values.</param>
+            <returns>List of node already parsed.</returns>
+        </member>
+        <member name="M:Markov.Helper.MarkovDecoder.PrintSolvedGrid(System.Char[0:,0:],System.Collections.Generic.List{Coordinate})">
+            <summary>
+            Print in the console the solution of a word search puzle 2D array.
+            </summary>
+            <param name="matrix">The array to print</param>
+            <param name="coordinates">The coordinates to highlight and show in different color to indicate the findings.</param>
+        </member>
+        <member name="M:Markov.Helper.MarkovDecoder.PrintGrid(System.Char[0:,0:])">
+            <summary>
+            Print a 2D Array.
+            </summary>
+            <param name="matrix">The 2D array going to be processed.</param>
+        </member>
+        <member name="M:Markov.Helper.MarkovDecoder.BuildGridFromString(System.Int32,System.Int32,System.String)">
+            <summary>
+            Generates a 2D Array from a string value.
+            </summary>
+            <param name="rows">Number of rows for the grid.</param>
+            <param name="cols">Number of columns for the grid.</param>
+            <param name="stringValue">The string value to be parsed.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Markov.Helper.MarkovDecoder.Split(System.String,System.Int32)">
+            <summary>
+            Split a string into chunks for 
+            </summary>
+            <param name="str"></param>
+            <param name="chunkSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Markov.Helper.MarkovDecoder.GetCypherText(System.Collections.Generic.List{Markov.Models.Markov.Cypher},System.Int32)">
+            <summary>
+            Get the text of a cypher based on its ID.
+            </summary>
+            <param name="cypher">Cypher list of the values.</param>
+            <param name="id">Id of the cypher to review.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Markov.Helper.MarkovDecoder.ReadCypher(System.String)">
+            <summary>
+            Read cypher values from a file.
+            </summary>      
+            <returns>List of cypher already parsed.</returns>
+        </member>
+        <member name="M:Markov.Helper.MarkovDecoder.GetRuleById(System.Int32,System.Collections.Generic.List{Markov.Models.Markov.Rule})">
+            <summary>
+            Read rule values from a file.
+            </summary>
+            <param name="fileName">The name of the file containing the rules values.</param>
+            <returns>List of rules already parsed.</returns>
+            <summary>
+            Gets a rule given an ID.
+            </summary>
+            <param name="id">Id of the rule to check.</param>
+            <param name="rules">Collection with the rule values to verify.</param>
+            <returns>The rule in case it exists.</returns>
+        </member>
+        <member name="M:Markov.Helper.Puzzle.GetNeighbourValues(System.Collections.Generic.IEnumerable{Coordinate},System.Char[0:,0:])">
+            <summary>
+            Retrieves the neighbors elements given specific coordinates.
+            </summary>
+            <param name="coords">List of coordinates to check.</param>
+            <param name="array">The 2D array containing the char values.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Markov.Helper.Puzzle.GetCoordinate(System.Char,System.Char[0:,0:])">
+            <summary>
+            Gets a list of coordinates when searching a specific char in the array.
+            </summary>
+            <param name="value">The value to search.</param>
+            <param name="array">The 2D array containing the char values.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Markov.Models.Puzzle.PuzzleResponse">
+            <summary>
+            Class used to handle the serialized response per word.
+            </summary>
+        </member>
+        <member name="P:Markov.Models.Puzzle.PuzzleResponse.Word">
+            <summary>
+            Contains the value of the word.
+            </summary>
+        </member>
+        <member name="P:Markov.Models.Puzzle.PuzzleResponse.Breakdown">
+            <summary>
+            Contains the list of each character associated to its coordinate in the 2-D Array.
+            </summary>
+        </member>
+        <member name="T:PuzzleSolver">
+            <summary>
+            This class handles all the logic related to the convenient way of solving a word search puzzle.
+            </summary>
+        </member>
+    </members>
+</doc>
