@@ -1,11 +1,8 @@
 ﻿using Markov.Helper;
-using Markov.Models.Markov;
 using Markov.Models.Puzzle;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -15,18 +12,17 @@ namespace Markov
     {
         private static void Main(string[] args)
         {
-            var rules =  MarkovDecoder.ReadRules();
-
-            // FindMatch(rules);
-
+            SolvePuzzle();
+            Console.WriteLine("Please enter a Key to exit the operation");
+            Console.ReadKey();
+        }
+        static void SolvePuzzle()
+        {
+            var rules = MarkovDecoder.ReadRules();
             var values = MarkovDecoder.ReadValues();
-            //test();
-            Console.WriteLine("***********************Decoding Characters using Markov Algorithm***************");
 
-          
-            //.Generate();
-            char [,] array = MarkovDecoder.Decypher(rules, values);
-            //MarkovDecoder.PrintGrid(array);
+            Console.WriteLine("***********************Decoding Characters using Markov Algorithm***************");
+            char[,] array = MarkovDecoder.Decypher(rules, values);
             Console.WriteLine("***********************Generating Puzzle****************************************");
             string[] wordsToCheck = MarkovDecoder.ReadWords().ToArray();
 
@@ -35,27 +31,27 @@ namespace Markov
             {
                 Console.Write(word + " - ");
             }
-            Console.WriteLine("\n");
-            
+            Console.WriteLine();
+
             List<PuzzleResponse> puzzleResponseList = new List<PuzzleResponse>();
             List<Coordinate> coordinatesToPaint = new List<Coordinate>();
             StringBuilder sBuilderFoundWords = new StringBuilder();
             foreach (var word in wordsToCheck)
             {
-                var coordinatesPerWord = Puzzle.CheckAdjacentsC(word, 0,0, array);
+                var coordinatesPerWord = Puzzle.CheckAdjacentsC(word, 0, 0, array);
                 PuzzleResponse puzzleResponseTemp = new PuzzleResponse();
                 puzzleResponseTemp.Breakdown = new List<Breakdown>();
                 //We need to check whether or not the query returned values.
                 if (coordinatesPerWord.Count > 0)
                 {
                     puzzleResponseTemp.Word = word;
-                    
+
                     coordinatesToPaint.AddRange(coordinatesPerWord);
                     foreach (var coord in coordinatesPerWord)
                     {
                         Breakdown brkDown = new Breakdown()
                         {
-                            Character = array[coord.X,coord.Y],
+                            Character = array[coord.X, coord.Y],
                             Row = coord.X,
                             Column = coord.Y
                         };
@@ -67,12 +63,11 @@ namespace Markov
             }
             foreach (var word in wordsToCheck)
             {
-               var  solution = PuzzleSolver.SolvePuzzle(array, word);
-                if(solution.Word != null)
+                var solution = PuzzleSolver.SolvePuzzle(array, word);
+                if (solution.Word != null)
                     puzzleResponseList.Add(solution);
             }
 
-            
             foreach (var puzzleSolution in puzzleResponseList)
             {
                 foreach (var item in puzzleSolution.Breakdown)
@@ -86,18 +81,19 @@ namespace Markov
                 }
                 if (!String.IsNullOrWhiteSpace(puzzleSolution.Word))
                 {
-                    if(!sBuilderFoundWords.ToString().Contains(puzzleSolution.Word))
+                    if (!sBuilderFoundWords.ToString().Contains(puzzleSolution.Word))
                         sBuilderFoundWords.Append(puzzleSolution.Word + "-");
                 }
-                    
             }
-            Console.WriteLine(string.Format("List of words Found in Puzzle: {0} ", sBuilderFoundWords.ToString()));
-            MarkovDecoder.PrintSolvedGrid(array, coordinatesToPaint);
-            var x = JsonConvert.SerializeObject(puzzleResponseList.Where(p => p.Word != null), Formatting.Indented);
-            Console.WriteLine(x);
-            Console.ReadKey();
-        }
 
-      
+            var output = JsonConvert.SerializeObject(puzzleResponseList.Where(p => p.Word != null), Formatting.Indented);
+            Console.WriteLine("JSON Output Generated: ");
+            Console.WriteLine(output);
+
+            Console.WriteLine(string.Format("WORDS FOUND IN PUZZLE: {0} ", sBuilderFoundWords.ToString()));
+            Console.WriteLine();
+            MarkovDecoder.PrintSolvedGrid(array, coordinatesToPaint);
+            Console.WriteLine();
+        }
     }
 }

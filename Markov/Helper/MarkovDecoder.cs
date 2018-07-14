@@ -16,10 +16,10 @@ namespace Markov.Helper
         /// </summary>
         ///
         #region Readonly Variables
-        static readonly string _WordsFileName = "words.json";
-        static readonly string _CypherFileName = "cypher.json";
-        static readonly string _RulesFileName = "rules.json";
-        static readonly string _ValuesFileName = "values.json";
+        static readonly string _WordsFileName = "../../Sources/words.json";
+        static readonly string _CypherFileName = "../../Sources/cypher.json";
+        static readonly string _RulesFileName = "../../Sources/rules.json";
+        static readonly string _ValuesFileName = "../../Sources/values.json";
         #endregion
         /// <summary>
         /// Uses the Markov's Algorithm for string replacement to decode a list of characters in order to generate a 2D char array
